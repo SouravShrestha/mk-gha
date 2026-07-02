@@ -1,0 +1,27 @@
+name = "<%= appName %>"
+<% if (projectType === 'nextjs') { -%>
+main = ".open-next/worker.js"
+<% } else if (projectType === 'react') { -%>
+pages_build_output_dir = "dist"
+<% } else { -%>
+main = "src/index.js"
+<% } -%>
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = false
+preview_urls = false
+
+<% if (projectType === 'nextjs') { -%>
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+<% } -%>
+[vars]
+# Add your production environment variables here
+
+[env.test]
+name = "<%= appName %>-test"
+
+[env.test.vars]
+# Add your test environment variables here
