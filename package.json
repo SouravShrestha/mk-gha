@@ -1,0 +1,52 @@
+{
+  "name": "mk-gha",
+  "version": "1.0.0",
+  "description": "Scaffold GitHub Actions workflows with an interactive CLI.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/souravshrestha/mk-gha.git"
+  },
+  "keywords": [
+    "github-actions",
+    "cli",
+    "scaffold",
+    "workflows",
+    "ci",
+    "cd"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/souravshrestha/mk-gha/issues"
+  },
+  "homepage": "https://github.com/souravshrestha/mk-gha#readme",
+  "type": "module",
+  "bin": {
+    "mk-gha": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "postbuild": "node scripts/copy-templates.js",
+    "prepublishOnly": "npm run build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "clack": "npm:@clack/prompts@^0.10.1",
+    "ejs": "^3.1.10"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.5",
+    "@types/node": "^22.10.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
